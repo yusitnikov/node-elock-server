@@ -1,8 +1,13 @@
 # NodeJS eLock server
 Distributed locking server on NodeJS.
 
-Implements [Dustin's eLock server](https://github.com/dustin/elock) protocol with an addition of deadlock detection:
-`lock` command may return 423 error code with a detailed deadlock description.
+Implements [Dustin's eLock server](https://github.com/dustin/elock) protocol with following additions:
+- deadlock detection:
+  `lock` command may return 423 error code with a detailed deadlock description.
+- value lock:
+  `lock_value key value [timeout]` locks the key to be equal to value.
+  Many client sessions can lock the key to the same value at the same time.
+  Return codes are same as for the `lock` command.
 
 ## Install
 
