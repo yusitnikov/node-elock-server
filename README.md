@@ -8,6 +8,20 @@ Implements [Dustin's eLock server](https://github.com/dustin/elock) protocol wit
   `lock_value key value [timeout]` locks the key to be equal to value.
   Many client sessions can lock the key to the same value at the same time.
   Return codes are same as for the `lock` command.
+- `debug` command. Expected output:
+  ```
+  200 DEBUG
+  SESSION <session 1 object JSON>
+  SESSION <session 2 object JSON>
+  ...
+  LOCK <lock 1 description (free text)>
+  LOCK <lock 2 description (free text)>
+  ...
+  REQUEST <lock request 1 description (free text)>
+  REQUEST <lock request 2 description (free text)>
+  ...
+  END
+  ```
 
 ## Install
 
